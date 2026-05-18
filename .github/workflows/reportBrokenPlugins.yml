@@ -40,8 +40,7 @@ jobs:
         steps:
             - uses: actions/checkout@v7
               with:
-                  repository: ${{ inputs.pr_repo || github.repository }}
-                  ref: ${{ inputs.ref || (github.event_name == 'schedule' && 'dev' || github.ref) }}
+                  ref: ${{ github.event_name == 'schedule' && github.repository == 'Equicord/Equicord' && 'dev' || github.ref }}
 
             - uses: pnpm/action-setup@v6
 
