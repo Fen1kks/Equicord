@@ -314,7 +314,7 @@ export default definePlugin({
 
         // only check for expired attachments if the message is not deleted
         {
-            find: "\"/ephemeral-attachments/\"",
+            find: ".ATTACHMENTS_REFRESH_URLS,",
             replacement: {
                 match: /\i\.attachments\.some\(\i\)\|\|\i\.embeds\.some/,
                 replace: "!arguments[0].deleted && $&"
@@ -414,9 +414,10 @@ export default definePlugin({
             }
         }
 
-        const { imageCacheDir, logsDir } = await Native.getSettings();
+        const { imageCacheDir, logsDir, attachmentFileExtensions } = await Native.getSettings();
         settings.store.imageCacheDir = imageCacheDir;
         settings.store.logsDir = logsDir;
+        settings.store.attachmentFileExtensions = attachmentFileExtensions ?? "none";
 
         setupContextMenuPatches();
     },
