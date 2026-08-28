@@ -41,6 +41,3 @@ misc/bundle
 
 # intl scripts
 misc/scripts
-
-# vpn scripts
-vpn_sync.ps1
