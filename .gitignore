@@ -35,6 +35,3 @@ ExtensionCache/
 
 # wakatime related stuff
 .wakatime-project
-
-# vpn scripts
-vpn_sync.ps1
